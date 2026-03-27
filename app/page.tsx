@@ -112,7 +112,12 @@ export default function RegisterPage() {
         key={index}
         className="absolute w-full h-full transition-all duration-300 ease-out"
         style={{
-          transform: `translateX(${(index - currentIndex) * 100}%)`,
+          transform:
+    index === currentIndex
+      ? "translateX(0%)"
+      : index > currentIndex
+      ? "translateX(100%)"   // coming from right
+      : "translateX(-100%)", // going to left,
           opacity: index === currentIndex ? 1 : 0,
         }}
       >
