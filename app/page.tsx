@@ -113,12 +113,12 @@ export default function RegisterPage() {
         className="absolute w-full h-full transition-all duration-300 ease-out"
         style={{
           transform:
-    index === currentIndex
-      ? "translateX(0%)"
-      : index > currentIndex
-      ? "translateX(100%)"   // coming from right
-      : "translateX(-100%)", // going to left,
-          opacity: index === currentIndex ? 1 : 0,
+            diff === 0
+              ? "translateX(0%)"
+              : diff === 1
+              ? "translateX(100%)"   // next comes from right
+              : "translateX(-100%)", // all others go left
+          opacity: diff === 0 ? 1 : 0,
         }}
       >
         <div className="relative h-full w-full overflow-hidden rounded-2xl border-[3px] border-[#ff4c00] bg-white shadow-lg">
