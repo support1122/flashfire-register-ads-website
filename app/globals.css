@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Solid page fill — no pattern/watermark behind content */
+@layer base {
+  html,
+  body {
+    background-color: #faf3eb;
+  }
+}
+
+@theme {
+  --spacing-27: 6.75rem;
+  --border-width-3: 3px;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
