@@ -75,6 +75,7 @@ const offerLetters: OfferLetterData[] = [
 export default function RegisterPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % offerLetters.length);
@@ -108,15 +109,17 @@ export default function RegisterPage() {
             {offerLetters.map((item, index) => {
               const position =
                 (index - currentIndex + offerLetters.length) % offerLetters.length;
+                const isActive = position === 0;
 
               return (
                 <div
                   key={index}
-                  className="absolute w-full transition-all duration-700 ease-in-out"
+                  className="absolute w-full transition-all duration-300 ease-in-out"
                   style={{
                     transform: `
-            translateY(${position * 12}px)
-            scale(${1 - position * 0.05})
+                      translateX(${isActive ? (currentIndex % 2 === 0 ? 20 : -20) : 40}px)
+  translateY(${position * 10}px)
+  scale(${1 - position * 0.05})
           `,
                     zIndex: offerLetters.length - position,
                     opacity: position > 2 ? 0 : 1,
