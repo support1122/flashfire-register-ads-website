@@ -1,5 +1,25 @@
+# Dependencies & build
 /node_modules
 /.next
 /out
-.env*.local
 *.tsbuildinfo
+
+# Env (never commit secrets). `.env.example` is committed as a template.
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Logs & OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+__MACOSX/
+._*
+
+# IDE
+.idea
+.vscode

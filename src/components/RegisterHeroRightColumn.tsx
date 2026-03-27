@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { registerHeroData, UNIVERSITY_LOGOS } from "@/src/data/registerHero";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
+import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 const TRUST_AVATARS = [
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
@@ -14,10 +15,9 @@ const TRUST_AVATARS = [
 ];
 
 export default function RegisterHeroRightColumn() {
-  const router = useRouter();
   const data = registerHeroData;
 
-  const handleCta = () => {
+  const handleCta = useCallback(() => {
     if (typeof window === "undefined") return;
     const utmSource = localStorage.getItem("utm_source") || "WEBSITE";
     const utmMedium = localStorage.getItem("utm_medium") || "Hero_Section";
@@ -42,9 +42,12 @@ export default function RegisterHeroRightColumn() {
       funnel_stage: "signup_intent",
     });
 
-    router.push("/register/book-a-free-demo", { scroll: false });
     window.dispatchEvent(new CustomEvent("showCalendlyModal"));
-  };
+  }, []);
+
+  const { getButtonProps } = useGeoBypass({
+    onBypass: handleCta,
+  });
 
   return (
     <div className="relative mx-auto w-full min-w-0 max-w-[min(100%,40rem)] px-1 md:px-2">
@@ -91,6 +94,7 @@ export default function RegisterHeroRightColumn() {
           <button
             type="button"
             onClick={handleCta}
+            {...getButtonProps()}
             className="mb-8 inline-block cursor-pointer rounded-lg border-none bg-[#ff4c00] px-8 py-4 font-inherit text-lg font-semibold text-white no-underline shadow-[0_3px_0_black] transition-all duration-300 hover:-translate-y-0.5 hover:bg-black active:translate-y-0 max-[768px]:mb-6 max-[768px]:px-7 max-[768px]:py-3.5 max-[768px]:text-base max-[480px]:mb-5 max-[480px]:w-full max-[480px]:max-w-[300px] max-[480px]:px-5 max-[480px]:py-3 max-[480px]:text-[0.95rem]"
           >
             {data.cta.label}
