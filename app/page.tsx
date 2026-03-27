@@ -107,6 +107,9 @@ export default function RegisterPage() {
           <div className="relative w-full h-[520px] overflow-hidden">
 
   {offerLetters.map((item, index) => {
+     const total = offerLetters.length;
+
+     const diff = (index - currentIndex + total) % total;
     return (
       <div
         key={index}
