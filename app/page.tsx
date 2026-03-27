@@ -23,22 +23,6 @@ type OfferLetterData = {
 
 const offerLetters: OfferLetterData[] = [
   {
-    name: "Kanchan",
-    company: "MiRus",
-    linkedinUrl: "https://www.linkedin.com/in/dr-kanchan-yadav-ba0b18106/",
-    imagePath: "/images/kanchan_offer.png",
-    profileImagePath:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/kanchan.jpeg",
-  },
-  {
-    name: "Uhtiha",
-    company: "MaineHealth Maine Medical Center",
-    linkedinUrl: "https://www.linkedin.com/in/uhitha-doddapaneni-903932128/",
-    imagePath: "/images/uhitha_offer.png",
-    profileImagePath:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/uhitha.jpeg",
-  },
-  {
     name: "Vaishali Jain",
     company: "Lila Sciences",
     linkedinUrl: "https://www.linkedin.com/in/vaishali-jain-187665263/",
@@ -79,28 +63,12 @@ const offerLetters: OfferLetterData[] = [
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/TEJA.jpeg",
   },
   {
-    name: "Aryan",
-    company: "IBM",
-    linkedinUrl: "#",
-    imagePath: "/images/aryan_offer.png",
+    name: "Rijul Jain",
+    company: "Wise",
+    linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
+    imagePath: "/images/rijul_offer.png",
     profileImagePath:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg",
-  },
-  {
-    name: "Amit",
-    company: "Armorcode",
-    linkedinUrl: "#",
-    imagePath: "/images/amit_offer.png",
-    profileImagePath:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
-  },
-  {
-    name: "Rudraksh",
-    company: "State Street",
-    linkedinUrl: "#",
-    imagePath: "/images/rudraksh_offer.png",
-    profileImagePath:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rudraksh.jpg",
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg",
   },
 ];
 
@@ -129,10 +97,9 @@ export default function RegisterPage() {
         <div className="w-full max-w-md min-w-0">
           {/* HEADER BADGE */}
           <div className="mb-6 text-center">
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#ff4c00]/20 bg-gradient-to-r from-[#ff4c00]/15 to-[#ff6b33]/10 px-4 py-2.5 text-sm font-bold tracking-wide text-[#ff4c00]">
-              <Sparkles className="h-4 w-4" />
+            <h2 className="text-[34.26px] font-black mb-4 leading-[110%] tracking-[-2.29px] text-[#ff4c00]">
               30+ Offer Letters Received
-            </div>
+            </h2>
           </div>
 
           {/* SUCCESS CARD */}
@@ -185,7 +152,7 @@ export default function RegisterPage() {
                           >
                             <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.62-1.85 3.33-1.85 3.56 0 4.22 2.34 4.22 5.38v6.36zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
                           </svg>
-                         
+
                         </div>
                       </a>
                     </div>
