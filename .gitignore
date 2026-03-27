@@ -23,3 +23,6 @@ __MACOSX/
 # IDE
 .idea
 .vscode
+
+# Accidental nested copy of this repo
+register-landing/

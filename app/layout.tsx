@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   ),
   title: "Flashfire — Register",
   description: "Land interview calls with Flashfire AI Copilot",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
