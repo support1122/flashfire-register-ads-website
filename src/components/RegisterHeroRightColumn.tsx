@@ -60,7 +60,7 @@ export default function RegisterHeroRightColumn() {
         </div>
 
         <h1
-          className="mx-auto mb-5 w-full max-w-[900px] px-2 text-center font-bold leading-[1.12] tracking-[-0.02em] text-[1.6rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[2.9rem] text-black max-[480px]:mb-4 max-[480px]:px-1"
+          className="mx-auto mb-5 w-full max-w-[900px] px-2 text-center font-bold leading-[1.12] tracking-[-0.02em] text-[1.6rem] sm:text-[2.1rem] md:text-[3rem] lg:text-[2.9rem] text-black max-[480px]:mb-4 max-[480px]:px-1"
           
         >
           {/* Line 1: static — no overflow-x-auto (that was making the line swipe/scroll) */}
