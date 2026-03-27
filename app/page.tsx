@@ -98,83 +98,67 @@ export default function RegisterPage() {
         <div className="w-full max-w-md min-w-0">
           {/* HEADER BADGE */}
           <div className="mb-6 text-center">
-            <h2 className="text-[34.26px] font-black mb-4 leading-[110%] tracking-[-2.29px] text-[#ff4c00]">
+            <h2 className="text-[34.26px] font-black mb-4 leading-[110%] tracking-[-2.29px] text-black">
               30+ Offer Letters Received
             </h2>
           </div>
 
           {/* SUCCESS CARD */}
-          <div className="relative w-full h-[520px]">
+          <div className="relative w-full h-[520px] overflow-hidden">
 
-            {offerLetters.map((item, index) => {
-              const position =
-                (index - currentIndex + offerLetters.length) % offerLetters.length;
-                const isActive = position === 0;
+  {offerLetters.map((item, index) => {
+    return (
+      <div
+        key={index}
+        className="absolute w-full h-full transition-all duration-300 ease-out"
+        style={{
+          transform: `translateX(${(index - currentIndex) * 100}%)`,
+          opacity: index === currentIndex ? 1 : 0,
+        }}
+      >
+        <div className="relative h-full w-full overflow-hidden rounded-2xl border-[3px] border-[#ff4c00] bg-white shadow-lg">
 
-              return (
-                <div
-                  key={index}
-                  className="absolute w-full transition-all duration-300 ease-in-out"
-                  style={{
-                    transform: `
-                      translateX(${isActive ? (currentIndex % 2 === 0 ? 20 : -20) : 40}px)
-  translateY(${position * 10}px)
-  scale(${1 - position * 0.05})
-          `,
-                    zIndex: offerLetters.length - position,
-                    opacity: position > 2 ? 0 : 1,
-                  }}
-                >
-                  <div className="overflow-hidden rounded-3xl border border-[#ffd7c4] bg-white p-6 shadow-[0_8px_32px_rgba(255,76,0,0.08)]">
-
-                    {/* USER */}
-                    <div className="mb-4 flex items-center gap-3">
-                      <a
-                        href={item.linkedinUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mb-4 flex items-center gap-3"
-                      >
-                        {/* Profile */}
-                        <div className="relative h-12 w-12 overflow-hidden rounded-full">
-                          <Image src={item.profileImagePath} alt={item.name} fill />
-                        </div>
-
-                        {/* Name + Company */}
-                        <div className="flex-1">
-                          <p className="font-semibold text-gray-800">{item.name}</p>
-                          <p className="text-sm text-gray-500">{item.company}</p>
-                        </div>
-
-                        {/* ALWAYS VISIBLE LINKEDIN */}
-                        <div className="flex items-center gap-1 text-[#ff4c00] text-sm font-medium">
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.62-1.85 3.33-1.85 3.56 0 4.22 2.34 4.22 5.38v6.36zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
-                          </svg>
-
-                        </div>
-                      </a>
-                    </div>
-
-                    {/* OFFER IMAGE */}
-                    <div className="relative h-[360px] w-full overflow-hidden rounded-xl bg-[#fafafa]">
-                      <Image
-                        src={item.imagePath}
-                        alt={item.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-
-                  </div>
-                </div>
-              );
-            })}
+          {/* OFFER IMAGE */}
+          <div className="relative h-full w-full">
+            <Image
+              src={item.imagePath}
+              alt={item.name}
+              fill
+              className="object-contain"
+            />
           </div>
+
+          {/* FLOATING BLACK BAR */}
+          <a
+            href={item.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-black px-4 py-3 text-white shadow-lg"
+          >
+            {/* Profile */}
+            <div className="relative h-10 w-10 overflow-hidden rounded-full">
+              <Image src={item.profileImagePath} alt={item.name} fill />
+            </div>
+
+            {/* Text */}
+            <div className="flex-1">
+              <p className="text-sm font-semibold">{item.name}</p>
+              <p className="text-xs text-gray-300">{item.company}</p>
+            </div>
+
+            {/* LinkedIn */}
+            <div className="flex h-8 w-8 items-center justify-center rounded-md border border-white/30">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.62-1.85 3.33-1.85 3.56 0 4.22 2.34 4.22 5.38v6.36zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+              </svg>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    );
+  })}
+</div>
 
           {/* Trust indicators below card */}
           {/* <div className="flex items-center justify-center gap-6 mt-5">

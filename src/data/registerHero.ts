@@ -7,7 +7,7 @@ export const registerHeroData: HeroSectionData = {
   headlineSuffix: "AI Copilot",
   description:
     "We apply to 1200 USA job applications & track everything while you focus on winning the interview.",
-  cta: { label: "Get Started →", href: "/register/book-a-free-demo" },
+  cta: { label: "Book a Demo →", href: "/register/book-a-demo" },
   trustText: "Trusted by 560+ Users",
   universityHeading:
     "Trusted by students and graduates from top global universities.",

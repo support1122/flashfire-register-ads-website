@@ -60,7 +60,7 @@ export default function RegisterHeroRightColumn() {
         </div>
 
         <h1
-          className="mx-auto mb-5 w-full max-w-[900px] px-0 text-center font-bold leading-[1.12] tracking-[-0.02em] text-[1.6rem] sm:text-[2.1rem] md:text-[3rem] lg:text-[2.9rem] text-black max-[480px]:mb-4 max-[480px]:px-1 mr-10 md:mr-0"
+          className="mx-auto mb-5 w-full max-w-[900px] px-0 text-center font-bold leading-[1.12] tracking-[-0.02em] text-[1.6rem] sm:text-[2.1rem] md:text-[3rem] lg:text-[2.9rem] text-black max-[480px]:mb-4 max-[480px]:px-1 mr-4 md:mr-0"
           
         >
           {/* Line 1: static — no overflow-x-auto (that was making the line swipe/scroll) */}
@@ -69,13 +69,15 @@ export default function RegisterHeroRightColumn() {
           </span>
           {/* Line 2: static centered row */}
           <div className="mt-1 flex w-full flex-nowrap items-center justify-center gap-2 max-[480px]:gap-1">
-            <span className="shrink-0 whitespace-nowrap">{data.headlineHighlight}</span>
+            <span className="text-black tracking-[-0.02em] inline-block max-[768px]:-mr-[0.3rem]">{data.headlineHighlight}</span>
+            <span className="inline-flex items-center max-[768px]:origin-center max-[768px]:mx-[-0.05rem]">
             <FlashfireLogo
-              width={118}
-              height={118}
-              className="-mx-8 inline-block h-[2.4em] w-auto flex-shrink-0 object-contain align-middle leading-none max-[768px]:mx-0 max-[768px]:h-11 max-[768px]:w-auto"
+              width={0}
+              height={0}
+              className="inline-block align-middle h-[2.4em] w-auto leading-none flex-shrink-0 object-contain -mx-8 max-[768px]:h-11 max-[768px]:w-auto max-[768px]:mx-0"
             />
-            <span className="shrink-0 whitespace-nowrap">{data.headlineSuffix}</span>
+          </span>
+            <span className="text-black tracking-[-0.02em] inline-block max-[768px]:-ml-[0.45rem]">{data.headlineSuffix}</span>
           </div>
         </h1>
 
@@ -128,7 +130,7 @@ export default function RegisterHeroRightColumn() {
           <div className="relative mx-auto mt-0 w-[90%] max-w-[90%] overflow-hidden rounded-none p-0 max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
             <div
               className="flex w-max min-w-0 flex-nowrap items-center gap-[0.05rem]"
-              style={{ animation: "slide-left 20s linear infinite" }}
+              
             >
               {[...data.universities, ...data.universities].map((uni, index) => {
                 const logoSrc =
