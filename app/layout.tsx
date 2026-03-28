@@ -21,7 +21,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_CAMPAIGN_BASE_URL || "https://www.flashfirejobs.com",
   ),
-  title: "Flashfire — Register",
+  title: {
+    default: "Flashfire — AI Powered Job Search Automation",
+    template: "%s | Flashfire — AI Powered Job Search Automation",
+  },
   description: "Land interview calls with Flashfire AI Copilot",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
