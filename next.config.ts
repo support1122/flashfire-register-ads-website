@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // When served behind the main site's rewrite proxy, assets must load
+  // from the register app's own domain, not flashfirejobs.com
+  assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || 'https://flashfire-register-ads-website.vercel.app',
   turbopack: {
     root: process.cwd(),
   },
