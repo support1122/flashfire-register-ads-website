@@ -264,20 +264,22 @@ export default function CalendlyModal({
 
   return (
     <div
-      className="fixed inset-0 z-[9999] w-full items-center justify-center bg-black/60"
+      className="fixed inset-0 z-[9999] w-full items-center justify-center bg-neutral-900/55 backdrop-blur-[2px]"
       style={{ display: isVisible ? "flex" : "none" }}
       aria-hidden={!isVisible}
       onClick={onClose}
     >
       <div
-        className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-xl bg-white/80 shadow-2xl backdrop-blur-sm lg:flex-row"
+        className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-orange-200/40 bg-[#faf3eb]/95 shadow-2xl backdrop-blur-sm lg:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 z-20 rounded-full bg-white/90 p-2 text-gray-400 shadow-lg transition-colors hover:text-gray-600 sm:right-6 sm:top-6"
+          className="absolute right-4 top-4 z-20 rounded-full bg-[#faf3eb] p-2 text-slate-600 shadow-md ring-1 ring-orange-200/50 transition-colors hover:bg-[#f5eadc] hover:text-slate-900 sm:right-6 sm:top-6"
+          aria-label="Close"
         >
-          <X className="h-5 w-5 sm:h-6 sm:w-6" />
+          <X className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
         </button>
 
         <div className="block h-full w-full lg:hidden">
@@ -378,9 +380,9 @@ export default function CalendlyModal({
             </div>
           </div>
 
-          <div className="relative w-full overflow-hidden bg-white lg:w-3/5 lg:rounded-r-xl">
+          <div className="relative w-full overflow-hidden bg-[#faf3eb] lg:w-3/5 lg:rounded-r-xl">
             {!isCalendlyReady && isVisible && (
-              <div className="absolute inset-0 z-10 bg-white" />
+              <div className="absolute inset-0 z-10 bg-[#faf3eb]" />
             )}
             <InlineWidget
               url={calendlyUrl}
@@ -397,7 +399,7 @@ export default function CalendlyModal({
                 minHeight: "calc(100vh - 100px)",
               }}
               pageSettings={{
-                backgroundColor: "ffffff",
+                backgroundColor: "faf3eb",
                 hideEventTypeDetails: false,
                 hideLandingPageDetails: false,
                 primaryColor: "f97316",

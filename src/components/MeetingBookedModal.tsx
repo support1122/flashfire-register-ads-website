@@ -3,29 +3,44 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { PlayCircle, Users, X } from "lucide-react";
+
+/** Matches app/globals.css and register landing */
+const PAGE_CREAM = "#faf3eb";
 
 type Props = {
   onClose?: () => void;
 };
 
 export default function MeetingBookedModal({ onClose }: Props) {
+  const router = useRouter();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  const handleCloseMain = () => {
+    if (onClose) {
+      onClose();
+      return;
+    }
+    router.push("/register");
+  };
 
   return (
     <>
-      {/* Main Popup Overlay */}
-      <div className="fixed inset-0 z-[9985] flex items-center justify-center bg-black/60 px-3 py-4 md:px-4 md:py-6">
-        <div className="relative w-full max-w-[360px] rounded-2xl border border-orange-100 bg-white px-4 py-5 text-center shadow-2xl md:max-w-[420px] md:px-6 md:py-6">
-          {/* Close Button */}
-          {onClose && (
-            <button
-              onClick={onClose}
-              className="absolute right-4 top-4 text-gray-400 hover:text-gray-700"
-            >
-              <X size={18} />
-            </button>
-          )}
+      {/* Main Popup Overlay — dimmed backdrop; panel uses site cream (not white) */}
+      <div className="fixed inset-0 z-[9985] flex items-center justify-center bg-neutral-900/55 px-3 py-4 backdrop-blur-[2px] md:px-4 md:py-6">
+        <div
+          className="relative w-full max-w-[360px] rounded-2xl border border-orange-200/60 px-4 py-5 text-center shadow-2xl md:max-w-[420px] md:px-6 md:py-6"
+          style={{ backgroundColor: PAGE_CREAM }}
+        >
+          <button
+            type="button"
+            onClick={handleCloseMain}
+            className="absolute right-3 top-3 rounded-full p-1.5 text-slate-600 transition-colors hover:bg-black/5 hover:text-slate-900 md:right-4 md:top-4"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" strokeWidth={2} />
+          </button>
 
           <h1 className="mb-2 text-lg font-extrabold text-slate-900 md:text-2xl">
             <span className="text-[#ff4c00]">Thank you</span>{" "}
@@ -37,7 +52,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
           </p>
 
           <div className="mb-4 md:mb-5">
-            <div className="mx-auto w-full max-w-md overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+            <div className="mx-auto w-full max-w-md overflow-hidden rounded-xl border border-orange-200/50 bg-white/60">
               <Image
                 src="/images/meme.jpg"
                 alt="See you there"
@@ -64,7 +79,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
             </button>
           </div>
 
-          <div className="flex flex-col items-center gap-2 border-t border-slate-100 pt-1 md:pt-2">
+          <div className="flex flex-col items-center gap-2 border-t border-orange-200/40 pt-1 md:pt-2">
             <div className="flex -space-x-1.5">
               {[
                 "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
@@ -113,10 +128,11 @@ export default function MeetingBookedModal({ onClose }: Props) {
           onMouseDown={() => setIsVideoOpen(false)}
         >
           <div
-            className="w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
+            className="w-full max-w-4xl overflow-hidden rounded-2xl border border-orange-200/50 shadow-xl"
+            style={{ backgroundColor: PAGE_CREAM }}
             onMouseDown={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 md:px-5">
+            <div className="flex items-center justify-between border-b border-orange-200/40 px-4 py-3 md:px-5">
               <p className="text-sm font-semibold text-slate-900 md:text-base">
                 Flashfire Demo Video
               </p>
@@ -130,7 +146,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
               </button>
             </div>
 
-            <div className="bg-white p-4 md:p-5">
+            <div className="p-4 md:p-5" style={{ backgroundColor: PAGE_CREAM }}>
               <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                 <video
                   className="absolute inset-0 h-full w-full rounded-lg"
