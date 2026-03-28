@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import MeetingBookedConversionTrack from "@/src/components/MeetingBookedConversionTrack";
+
+export const metadata: Metadata = {
+  title: "Meeting Booked",
+  description: "Your Flashfire consultation has been scheduled successfully.",
+};
 
 export default function MeetingBookedPage() {
   return (
