@@ -1,0 +1,51 @@
+/* Ported from flashfire-webiste navbar — mobile sticky Book a Demo */
+.stickyBar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 70;
+  width: 100%;
+  padding: 0.85rem 1.5rem calc(0.85rem + env(safe-area-inset-bottom));
+  background: #ffffff;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 900px) {
+  .stickyBar {
+    display: block;
+  }
+}
+
+.primary {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  letter-spacing: -0.3px;
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 0.3rem 0 #ff4c00;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.primary:hover {
+  background-color: #222;
+  transform: translateY(-1px);
+  box-shadow: 0 0.4rem 0 #ff4c00;
+}
+
+.primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 0.2rem 0 #ff4c00;
+}
